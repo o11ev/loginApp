@@ -17,4 +17,8 @@ class WelcomeScreenViewController: UIViewController {
         super.viewDidLoad()
         welcomeUserLabel.text = String("Welcome, " + userName)
     }
+    
+    @IBAction func logoutButtonPressed() {
+        dismiss(animated: true)
+    }
 }

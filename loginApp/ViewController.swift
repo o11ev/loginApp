@@ -15,6 +15,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        usernameTextField.text = ""
+        passwordTextField.text = ""
+    }
 
     @IBAction func forgotUserNameButtonPressed() {
         showAlert(with: "Opps!", and: "Your name is User")
@@ -28,7 +34,7 @@ class ViewController: UIViewController {
         if usernameTextField.text == "User" && passwordTextField.text == "Password" {
             performSegue(withIdentifier: "loginScreen", sender: nil)
         } else {
-            showCancelMessage(with: "RR", and: "EE")
+            showCancelMessage(with: "Invalid login or password", and: "Please, enter correct login and password")
         }
     }
     

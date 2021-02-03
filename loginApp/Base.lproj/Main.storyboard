@@ -82,7 +82,7 @@
                     <connections>
                         <outlet property="passwordTextField" destination="pUU-mb-Huw" id="edL-hE-0Mn"/>
                         <outlet property="usernameTextField" destination="baD-p1-dbu" id="Crq-Mr-21e"/>
-                        <segue destination="Heh-Pd-aKB" kind="show" identifier="loginScreen" id="5zD-uP-4pv"/>
+                        <segue destination="Heh-Pd-aKB" kind="presentation" identifier="loginScreen" modalPresentationStyle="fullScreen" id="5zD-uP-4pv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -94,7 +94,7 @@
             <objects>
                 <viewController id="Heh-Pd-aKB" customClass="WelcomeScreenViewController" customModule="loginApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OUW-c8-4FK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbm-UW-u9q">
@@ -104,9 +104,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ce-yN-CqR">
-                                <rect key="frame" x="151" y="359" width="73" height="38"/>
+                                <rect key="frame" x="151" y="379" width="73" height="38"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="logoutButtonPressed" destination="Heh-Pd-aKB" eventType="touchUpInside" id="Rea-qI-ENb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lSl-PH-iYt"/>

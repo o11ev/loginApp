@@ -23,6 +23,19 @@ class ViewController: UIViewController {
     @IBAction func forgotPasswordButtonPressed() {
         showAlert(with: "Opps!", and: "Your password is Password")
     }
+    
+    @IBAction func loginButtonPressed() {
+        if usernameTextField.text == "User" && passwordTextField.text == "Password" {
+            performSegue(withIdentifier: "loginScreen", sender: nil)
+        } else {
+            showCancelMessage(with: "RR", and: "EE")
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let welcomeVC = segue.destination as? WelcomeScreenViewController else { return }
+        welcomeVC.userName = usernameTextField.text
+    }
 }
 
 // MARK: - Alert Controller

@@ -9,10 +9,12 @@ import UIKit
 
 class WelcomeScreenViewController: UIViewController {
     
+    var userName: String!
+    
     @IBOutlet var welcomeUserLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        welcomeUserLabel.text = String("Welcome, " + userName)
     }
 }

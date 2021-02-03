@@ -42,7 +42,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <state key="normal" title="Log In"/>
                                         <connections>
-                                            <segue destination="Heh-Pd-aKB" kind="show" id="fry-RJ-mWS"/>
+                                            <action selector="loginButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="Obf-Go-zG6"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="jME-zU-dCl" userLabel="Stack View (buttons)">
@@ -82,6 +82,7 @@
                     <connections>
                         <outlet property="passwordTextField" destination="pUU-mb-Huw" id="edL-hE-0Mn"/>
                         <outlet property="usernameTextField" destination="baD-p1-dbu" id="Crq-Mr-21e"/>
+                        <segue destination="Heh-Pd-aKB" kind="show" identifier="loginScreen" id="5zD-uP-4pv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

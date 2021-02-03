@@ -79,15 +79,19 @@
                             <constraint firstItem="zbZ-rk-An1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="lGB-FR-mGz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="pUU-mb-Huw" id="edL-hE-0Mn"/>
+                        <outlet property="usernameTextField" destination="baD-p1-dbu" id="Crq-Mr-21e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1" y="84"/>
         </scene>
-        <!--View Controller-->
+        <!--Welcome Screen View Controller-->
         <scene sceneID="B4y-Rm-GZe">
             <objects>
-                <viewController id="Heh-Pd-aKB" sceneMemberID="viewController">
+                <viewController id="Heh-Pd-aKB" customClass="WelcomeScreenViewController" customModule="loginApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OUW-c8-4FK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,6 +118,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xQ0-e8-DNP"/>
+                    <connections>
+                        <outlet property="welcomeUserLabel" destination="bbm-UW-u9q" id="6tj-1x-zYU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dZv-Nu-xGC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

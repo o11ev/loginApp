@@ -9,13 +9,10 @@ import UIKit
 
 class WelcomeScreenViewController: UIViewController {
     
-    
     @IBOutlet var welcomeUserLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
-
-
 }

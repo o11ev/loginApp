@@ -12,16 +12,6 @@ class ViewController: UIViewController {
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        usernameTextField.text = ""
-        passwordTextField.text = ""
-    }
-
     @IBAction func forgotUserNameButtonPressed() {
         showAlert(with: "Opps!", and: "Your name is User")
     }
@@ -36,6 +26,11 @@ class ViewController: UIViewController {
         } else {
             showCancelMessage(with: "Invalid login or password", and: "Please, enter correct login and password")
         }
+    }
+    
+    @IBAction func unwind(segue: UIStoryboardSegue) {
+        usernameTextField.text = ""
+        passwordTextField.text = ""
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

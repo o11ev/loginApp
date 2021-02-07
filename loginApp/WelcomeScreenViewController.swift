@@ -9,9 +9,9 @@ import UIKit
 
 class WelcomeScreenViewController: UIViewController {
     
-    var userName: String!
-    
     @IBOutlet var welcomeUserLabel: UILabel!
+    
+    var userName: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()

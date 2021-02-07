@@ -21,6 +21,7 @@ class WelcomeScreenViewController: UIViewController {
         blue: 100/255,
         alpha: 1
     )
+    
     private let secondaryColor = UIColor(
         red: 237/255,
         green: 30/255,

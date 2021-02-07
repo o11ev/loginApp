@@ -12,26 +12,31 @@ class LoginViewController: UIViewController {
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
-    private let user = "User"
-    private let password = "Password"
+    private let personOne = Person(user: "User",
+                                   password: "Password",
+                                   userName: "Olga",
+                                   userSurname: "Dragunova",
+                                   age: 27,
+                                   currentWork: "Designer")
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let welcomeVC = segue.destination as? WelcomeScreenViewController else { return }
-        welcomeVC.userName = user
+        guard let welcomeScreenVC = segue.destination as? WelcomeScreenViewController else { return }
+        welcomeScreenVC.personName = personOne.userName
+        welcomeScreenVC.personSurname = personOne.userSurname
     }
     
     @IBAction func forgotUserNameButtonPressed() {
         showAlert(title: "Oops!",
-                  message: "Your name is \(user)")
+                  message: "Your name is \(personOne.user)")
     }
     
     @IBAction func forgotPasswordButtonPressed() {
         showAlert(title: "Oops!",
-                  message: "Your password is \(password)")
+                  message: "Your password is \(personOne.password)")
     }
     
     @IBAction func loginButtonPressed() {
-        if usernameTextField.text == user && passwordTextField.text == password {
+        if usernameTextField.text == personOne.user && passwordTextField.text == personOne.password {
             performSegue(withIdentifier: "loginScreen", sender: nil)
         } else {
             showAlert(

@@ -34,11 +34,6 @@ class WelcomeScreenViewController: UIViewController {
         view.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
         logoutButton.layer.cornerRadius = 5
     }
-    
-    // без этого экшена почему-то через exit и unwind не работает выход с экрана :(
-    @IBAction func logoutButtonPressed() {
-        dismiss(animated: true)
-    }
 }
 
 // MARK: - Set background color

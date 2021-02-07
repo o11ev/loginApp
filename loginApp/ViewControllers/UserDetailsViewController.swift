@@ -17,7 +17,7 @@ class UserDetailsViewController: UIViewController {
     @IBOutlet var personImageView: UIImageView!
     
     var personData: Person!
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         firstNameLabel.text = personData.firstName
@@ -27,5 +27,12 @@ class UserDetailsViewController: UIViewController {
         
         personImageView.layer.cornerRadius = 20
         personImageView.image = personData.photo
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let navigationVC = segue.destination as? UINavigationController {
+            let aboutUserVC = navigationVC.topViewController as! MoreInfoViewController
+            aboutUserVC.personDataDetail = personData
+        }
     }
 }

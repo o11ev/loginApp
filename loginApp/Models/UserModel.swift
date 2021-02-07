@@ -1,9 +1,3 @@
-//
-//  PersonModel.swift
-//  loginApp
-//
-//  Created by o11ev on 07.02.2021.
-//
 import UIKit
 
 struct User {
@@ -18,4 +12,6 @@ struct Person {
     let age: Int
     let currentWork: String
     let photo: UIImage
+    let city: String
+    let hobby: String
 }

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  loginApp
 //
 //  Created by o11ev on 02.02.2021.
@@ -20,22 +20,20 @@ class LoginViewController: UIViewController {
             lastName: "Dragunova",
             age: 27,
             currentWork: "Designer",
-            photo: UIImage(imageLiteralResourceName: "avatar")
+            photo: UIImage(imageLiteralResourceName: "avatar"),
+            city: "Saint-Petersburg",
+            hobby: "Blogging and Mobile Photography"
         )
     )
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
-        // Сохраняем ссылку на tabBar
+    
         let tabBarController = segue.destination as! UITabBarController
         
-        // Извлекаем из tabBar массив всех его VC
         guard let viewControllers = tabBarController.viewControllers else { return }
         
-        // Обращаемся к каждому VC
-        for viewController in viewControllers{
+        for viewController in viewControllers {
             
-            // Если VC является частным случаем Custom:VC, то передаем ему нужные данные
             if let welcomeVC = viewController as? WelcomeScreenViewController {
                 welcomeVC.firstName = userOlga.personData.firstName
                 welcomeVC.lastName = userOlga.personData.lastName

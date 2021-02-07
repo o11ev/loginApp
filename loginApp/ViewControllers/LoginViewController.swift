@@ -12,37 +12,57 @@ class LoginViewController: UIViewController {
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
-    private let personOne = Person(user: "User",
-                                   password: "Password",
-                                   userName: "Olga",
-                                   userSurname: "Dragunova",
-                                   age: 27,
-                                   currentWork: "Designer")
+    private let userOlga = User(
+        username: "User",
+        password: "Password",
+        personData: Person(
+            firstName: "Olga",
+            lastName: "Dragunova",
+            age: 27,
+            currentWork: "Designer",
+            photo: UIImage(imageLiteralResourceName: "avatar")
+        )
+    )
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let welcomeScreenVC = segue.destination as? WelcomeScreenViewController else { return }
-        welcomeScreenVC.personName = personOne.userName
-        welcomeScreenVC.personSurname = personOne.userSurname
+       
+        // Сохраняем ссылку на tabBar
+        let tabBarController = segue.destination as! UITabBarController
+        
+        // Извлекаем из tabBar массив всех его VC
+        guard let viewControllers = tabBarController.viewControllers else { return }
+        
+        // Обращаемся к каждому VC
+        for viewController in viewControllers{
+            
+            // Если VC является частным случаем Custom:VC, то передаем ему нужные данные
+            if let welcomeVC = viewController as? WelcomeScreenViewController {
+                welcomeVC.firstName = userOlga.personData.firstName
+                welcomeVC.lastName = userOlga.personData.lastName
+            } else if let userDetailsVC = viewController as? UserDetailsViewController {
+                userDetailsVC.personData = userOlga.personData
+            }
+        }
     }
     
     @IBAction func forgotUserNameButtonPressed() {
         showAlert(title: "Oops!",
-                  message: "Your name is \(personOne.user)")
+                  message: "Your name is \(userOlga.username)")
     }
     
     @IBAction func forgotPasswordButtonPressed() {
         showAlert(title: "Oops!",
-                  message: "Your password is \(personOne.password)")
+                  message: "Your password is \(userOlga.password)")
     }
     
     @IBAction func loginButtonPressed() {
-        if usernameTextField.text == personOne.user && passwordTextField.text == personOne.password {
+        if usernameTextField.text == userOlga.username && passwordTextField.text == userOlga.password {
             performSegue(withIdentifier: "loginScreen", sender: nil)
         } else {
             showAlert(
-            title: "Invalid login or password",
-            message: "Please, enter correct login and password",
-            textField: passwordTextField)
+                title: "Invalid login or password",
+                message: "Please, enter correct login and password",
+                textField: passwordTextField)
         }
     }
     

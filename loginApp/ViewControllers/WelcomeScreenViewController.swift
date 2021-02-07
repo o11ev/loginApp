@@ -11,12 +11,12 @@ class WelcomeScreenViewController: UIViewController {
     
     @IBOutlet var welcomeUserLabel: UILabel!
     
-    var personName = ""
-    var personSurname = ""
+    var firstName = ""
+    var lastName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        welcomeUserLabel.text = String("Welcome, \(personName) \(personSurname)")
+        welcomeUserLabel.text = String("Welcome, \(firstName) \(lastName)")
     }
     
     // без этого экшена почему-то через exit и unwind не работает выход с экрана :(

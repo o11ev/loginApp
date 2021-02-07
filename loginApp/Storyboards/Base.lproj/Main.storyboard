@@ -137,7 +137,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dZv-Nu-xGC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="1Pb-ms-WXv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1843.125" y="82.394366197183103"/>
+            <point key="canvasLocation" x="1763" y="-63"/>
         </scene>
         <!--Info-->
         <scene sceneID="kNg-8y-GMh">
@@ -230,14 +230,15 @@
                     <tabBarItem key="tabBarItem" title="Info" image="info.circle" catalog="system" id="Usn-FR-5mn"/>
                     <connections>
                         <outlet property="ageLabel" destination="9H8-4e-N6y" id="goU-k2-gAm"/>
-                        <outlet property="nameLabel" destination="m15-Vf-j3X" id="XBS-7Z-2Io"/>
-                        <outlet property="surnameLabel" destination="r5u-Jf-6gf" id="4Ss-F5-hvQ"/>
+                        <outlet property="firstNameLabel" destination="m15-Vf-j3X" id="XBS-7Z-2Io"/>
+                        <outlet property="lastNameLabel" destination="r5u-Jf-6gf" id="4Ss-F5-hvQ"/>
+                        <outlet property="personImageView" destination="OQd-l0-rPR" id="ZdU-DI-Jh0"/>
                         <outlet property="workLabel" destination="D4H-UP-bNr" id="cCZ-3U-sF5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EhU-5b-rek" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2865" y="81.338028169014081"/>
+            <point key="canvasLocation" x="1763" y="630"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="do4-6n-xN5">

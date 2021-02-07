@@ -6,14 +6,16 @@
 //
 import UIKit
 
-struct Person {
-    let user: String
+struct User {
+    let username: String
     let password: String
-    
-    let userName: String
-    let userSurname: String
-    
+    let personData: Person
+}
+
+struct Person {
+    let firstName: String
+    let lastName: String
     let age: Int
     let currentWork: String
-    //let photo: UIImage
+    let photo: UIImage
 }

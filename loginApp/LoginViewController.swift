@@ -17,50 +17,61 @@ class LoginViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let welcomeVC = segue.destination as? WelcomeScreenViewController else { return }
-        welcomeVC.userName = usernameTextField.text
+        welcomeVC.userName = user
     }
     
     @IBAction func forgotUserNameButtonPressed() {
-        showAlert(with: "Opps!", and: "Your name is \(user))")
+        showAlert(title: "Oops!",
+                  message: "Your name is \(user)")
     }
     
     @IBAction func forgotPasswordButtonPressed() {
-        showAlert(with: "Opps!", and: "Your password is \(password)")
+        showAlert(title: "Oops!",
+                  message: "Your password is \(password)")
     }
     
     @IBAction func loginButtonPressed() {
         if usernameTextField.text == user && passwordTextField.text == password {
             performSegue(withIdentifier: "loginScreen", sender: nil)
         } else {
-            showCancelMessage(with: "Invalid login or password", and: "Please, enter correct login and password")
+            showAlert(
+            title: "Invalid login or password",
+            message: "Please, enter correct login and password",
+            textField: passwordTextField)
         }
     }
     
-    @IBAction func unwind(segue: UIStoryboardSegue) {
-        usernameTextField.text = ""
-        passwordTextField.text = ""
+    @IBAction func unwindSegue(segue: UIStoryboardSegue) {
+        usernameTextField.text = nil
+        passwordTextField.text = nil
     }
 }
 
 // MARK: - Alert Controller
 extension LoginViewController {
-    private func showAlert(with title: String, and message: String) {
+    private func showAlert(title: String, message: String, textField: UITextField? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default)
-        
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            textField?.text = nil
+        }
         alert.addAction(okAction)
         present(alert, animated: true)
     }
 }
 
-extension LoginViewController {
-    private func showCancelMessage(with title: String, and message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "OK", style: .default) { _ in
-            self.passwordTextField.text = ""
+// MARK: - Keyboard Setup
+extension LoginViewController: UITextFieldDelegate {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == usernameTextField {
+            passwordTextField.becomeFirstResponder()
+        } else {
+            loginButtonPressed()
         }
-        
-        alert.addAction(cancelAction)
-        present(alert, animated: true)
+        return true
     }
 }

@@ -11,7 +11,7 @@ class WelcomeScreenViewController: UIViewController {
     
     @IBOutlet var welcomeUserLabel: UILabel!
     
-    var userName: String!
+    var userName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()

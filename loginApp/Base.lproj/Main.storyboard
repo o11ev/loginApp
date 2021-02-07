@@ -26,11 +26,17 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="250" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="hAS-C2-MWE"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pUU-mb-Huw">
                                                 <rect key="frame" x="0.0" y="49" width="250" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="OVf-Z0-ODP"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -43,6 +49,7 @@
                                         <state key="normal" title="Log In"/>
                                         <connections>
                                             <action selector="loginButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="Obf-Go-zG6"/>
+                                            <segue destination="Heh-Pd-aKB" kind="presentation" identifier="loginScreen" id="itI-ZP-8sq"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="jME-zU-dCl" userLabel="Stack View (buttons)">
@@ -82,7 +89,6 @@
                     <connections>
                         <outlet property="passwordTextField" destination="pUU-mb-Huw" id="edL-hE-0Mn"/>
                         <outlet property="usernameTextField" destination="baD-p1-dbu" id="Crq-Mr-21e"/>
-                        <segue destination="Heh-Pd-aKB" kind="presentation" identifier="loginScreen" modalPresentationStyle="fullScreen" id="5zD-uP-4pv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -94,7 +100,7 @@
             <objects>
                 <viewController id="Heh-Pd-aKB" customClass="WelcomeScreenViewController" customModule="loginApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OUW-c8-4FK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbm-UW-u9q">
@@ -104,12 +110,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ce-yN-CqR">
-                                <rect key="frame" x="123.5" y="280" width="73" height="38"/>
+                                <rect key="frame" x="123.5" y="260" width="73" height="38"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Log Out"/>
                                 <connections>
                                     <action selector="logoutButtonPressed" destination="Heh-Pd-aKB" eventType="touchUpInside" id="Rea-qI-ENb"/>
-                                    <segue destination="1Pb-ms-WXv" kind="unwind" unwindAction="unwindWithSegue:" id="UR2-Xv-BCl"/>
+                                    <segue destination="1Pb-ms-WXv" kind="unwind" unwindAction="unwindSegueWithSegue:" id="hQz-nR-1fo"/>
                                 </connections>
                             </button>
                         </subviews>
